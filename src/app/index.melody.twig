@@ -1,0 +1,20 @@
+<div class="player-wrapper">
+    <h1 class="main-headline">Melody Hooks</h1>
+    {% if not isLoading %}
+        <main class="player">
+            <h2 class="playing">Currently playing</h2>
+            <img class="cover" src="{{ track.image }}" />
+            <strong class="title">{{ track.name }}</strong>
+            {% if track.audio %}
+                <audio controls autoplay class="controls">
+                    <source src="{{ track.audio }}" type="audio/mpeg" />
+                </audio>
+            {% endif %}
+            <button class="btn-next" onClick="{{ nextTrack }}">Next random song</button>
+        </main>
+    {% else %}
+        <main class="player loading">
+            <p>Loading your next song...</p>
+        </main>
+    {% endif %}
+</div>
